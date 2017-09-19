@@ -7,7 +7,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 loadScreen="res\liberation.jpg";
-onLoadMission = "www.killahpotatoes.de";
+onLoadMission = "www.killahpotatoes.de-Dedicated to the Memory of [UKE]Baz";
 author = "[GREUH] Zbug, [GREUH] McKeewa, [KP] Wyqer";
 onLoadName = $STR_MISSION_TITLE;
 

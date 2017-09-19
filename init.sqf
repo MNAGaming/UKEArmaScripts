@@ -20,6 +20,8 @@ switch (KP_liberation_preset) do {
 [] call compileFinal preprocessFileLineNumbers "scripts\shared\classnames.sqf";
 
 [] execVM "GREUH\scripts\GREUH_activate.sqf";
+//activates the restart timer notification, does not **ACTUALLY** restart the server.
+[] execVM "scripts\uke\RestartTimer.sqf";
 
 [] call compileFinal preprocessFileLineNumbers "scripts\shared\init_shared.sqf";
 
@@ -33,7 +35,7 @@ if (!isDedicated && !hasInterface && isMultiplayer) then {
 
 if (hasInterface || isServer) then
 {
-	[] call compileFinal preprocessFileLineNumbers "addons\welcome\welcome.sqf";
+	[] call compileFinal preprocessFileLineNumbers "scripts\uke\welcome.sqf";
 };
 
 if (!isDedicated && hasInterface) then {
