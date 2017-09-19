@@ -69,29 +69,35 @@ FNC_RemoteATGM = {
 };
 
 FNC_RELOAD_ALLOWED = {
-	params ["_target","_this"];
+	_vehicle = _target;
+	_obj = nearestObject [position _vehicle,"B_Slingload_01_Ammo_F"];
 	_res = "false";
-	_vehicle = _this select 0;
-	_pos = getPos _vehicle;
-	_obj = nearestObject [_pos,"B_Slingload_01_Ammo_F"];
-	if(_obj == objNull) exitWith {};
-	
-		_opos = getPos _obj;
-		_m = _pos distance2D _opos;
-	// if (_m < 21) then 
-	// {
-	// 	"true"
-	// } 
-	// else 
-	// {
-	// 	"false"
-	// };
-		_res = [false,true] select (_m < 21);
-		_res
+	if (isNull _obj ) exitWith {_res};
+
+	_m = (position _vehicle) distance2D (position _obj);
+	if (_m < 21) then
+	{
+		_res = "true";
+	} else
+	{
+		_res = "false";
+	};
+	_res
+};
+
+FNC_RELOAD_ALLOWED1 = {
+	params ["_target","_this"];
+	(!isEngineOn _target)
+
 	
 };
 
-_id = _vehicle addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"[_vehicle] call FNC_RELOAD_ALLOWED","true",4];
-_id = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","true",4];
-_id = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","true",4];
-_id = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","true",4];
+_trigger = createTrigger["EmptyDetector",_vehicle,true];
+_trig = _trigger triggerAttachVehicle _vehicle;
+_trigger setTriggerStatements["]
+
+_id1 = _vehicle addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","[_vehicle] call FNC_RELOAD_ALLOWED",4];
+_id2 = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","true",4];
+_id3 = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","true",4];
+_id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","true",4];
+//"[_vehicle] call FNC_RELOAD_ALLOWED"""

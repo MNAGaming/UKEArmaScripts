@@ -21364,16 +21364,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4128.3906,25.205091,11966.128};
+				position[]={4128.3906,25.20513,11966.127};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="ammocrate";
 				disableSimulation=1;
 			};
 			id=3591;
 			type="B_Slingload_01_Ammo_F";
+			atlOffset=8.0108643e-005;
 			class CustomAttributes
 			{
 				class Attribute0
