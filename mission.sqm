@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=3605;
+		nextID=3606;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=476;
+		nextID=496;
 	};
 	class Camera
 	{
-		pos[]={4095.4006,47.898502,12016.279};
-		dir[]={0.083508402,-0.334806,-0.93871164};
-		up[]={0.029678816,0.94207168,-0.33358985};
-		aside[]={-0.9962244,3.6937236e-006,-0.088639066};
+		pos[]={4039.825,29.312405,11928.683};
+		dir[]={0.91949117,-0.23587714,0.31487241};
+		up[]={0.22328378,0.9715777,0.07646475};
+		aside[]={0.32403857,4.9632799e-006,-0.94621319};
 	};
 };
 binarizationWanted=0;
@@ -70,13 +70,14 @@ addons[]=
 	"A3_Structures_F_EPB_Items_Vessels",
 	"A3_Structures_F_Mil_Flags",
 	"UK3CB_BAF_Vehicles_Weapons_Editor",
-	"A3_Supplies_F_Heli_Slingload"
+	"A3_Supplies_F_Heli_Slingload",
+	"A3_Armor_F_Beta_APC_Tracked_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			className="A3_Boat_F_Jets";
@@ -187,6 +188,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item16
+		{
+			className="A3_Armor_F_Beta";
+			name="Arma 3 Beta - Armored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=8273028;
@@ -254,7 +262,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=337;
+		items=338;
 		class Item0
 		{
 			dataType="Object";
@@ -21372,6 +21380,7 @@ class Mission
 			{
 				name="ammocrate";
 				disableSimulation=1;
+				dynamicSimulation=1;
 			};
 			id=3591;
 			type="B_Slingload_01_Ammo_F";
@@ -21762,6 +21771,22 @@ class Mission
 			id=3603;
 			type="Land_ClutterCutter_small_F";
 			atlOffset=63.872894;
+		};
+		class Item337
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4057.9824,26.306015,11941.641};
+				angles[]={0,2.5453858,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=3605;
+			type="B_APC_Tracked_01_CRV_F";
 		};
 	};
 	class Connections

@@ -85,19 +85,30 @@ FNC_RELOAD_ALLOWED = {
 	_res
 };
 
-FNC_RELOAD_ALLOWED1 = {
-	params ["_target","_this"];
-	(!isEngineOn _target)
-
-	
+FNC_RELOAD_ALLOWED2 = {
+	if(planeammo=="true") then
+	{
+		_res = "true";
+	} else 
+	{
+		_res="false";
+	};
+	_res
 };
 
-_trigger = createTrigger["EmptyDetector",_vehicle,true];
-_trig = _trigger triggerAttachVehicle _vehicle;
-_trigger setTriggerStatements["]
-
-_id1 = _vehicle addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","[_vehicle] call FNC_RELOAD_ALLOWED",4];
-_id2 = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","true",4];
-_id3 = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","true",4];
-_id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","true",4];
-//"[_vehicle] call FNC_RELOAD_ALLOWED"""
+// //'{_x isKindOf "B_Slingload_01_Ammo_F"} count thisList > 0'
+// _id1 = objNull;
+// _id2 = objNull;
+// _id3 = objNull;
+// _id4 = objNull;
+// _trigger = createTrigger["EmptyDetector",_vehicle,true];
+// _trig = _trigger attachTo [_vehicle,[0,0,0]];
+// _trigger setTriggerArea[20,20,0,false,20];
+// _trigger setTriggerActivation ["ANY","PRESENT",true];
+// //_trigger setTriggerStatements["ammocrate in thisList","_id1 = _vehicle addAction [""Load Cluster Armament"",FNC_RemoteClusters,nil,1.5,false,true,"""",""true"",4],_id2 = _vehicle addAction [""Load GBU Armament"",FNC_RemoteGBU,nil,1.5,false,true,"""",""true"",4],_id3 = _vehicle addAction [""Load ATGM Armament"",FNC_RemoteATGM,nil,1.5,false,true,"""",""true"",4],_id4 = _vehicle addAction [""Load Interceptor Armament"",FNC_RemoteIA,nil,1.5,false,true,"""",""true"",4]","removeAction[_id1], removeAction [_id2], removeAction [_id3], removeaction[_id4],"];
+// _trigger setTriggerStatements["ammocrate in thisList","{_id1 = _vehicle addAction [""Load Cluster Armament"",FNC_RemoteClusters,nil,1.5,false,true,"""",""true"",4]}",""];
+// //_id1 = _vehicle addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","true",4];
+// //_id2 = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","true",4];
+// //_id3 = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","true",4];
+// //_id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","true",4];
+// //"[_vehicle] call FNC_RELOAD_ALLOWED"""
