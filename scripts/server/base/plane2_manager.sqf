@@ -1,5 +1,38 @@
 waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { !isNil "save_is_loaded" };
+[] call compileFinal preprocessFileLineNumbers "scripts\uke\planearmamentmanager.sqf";
+
+FNC_ACTIVATE = {
+	_tplane2 = _this select 0;
+	planeammo2="true";
+	publicVariable "planeammo2";
+	_id1 = _tplane2 addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","planeammo=='true'",4];
+	_id2 = _tplane2 addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","planeammo=='true'",4];
+	_id3 = _tplane2 addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","planeammo=='true'",4];
+	_id4 = _tplane2 addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","planeammo=='true'",4];
+};
+
+FNC_REMOTE_ACTIVATE = {
+	_vehicle = _this select 0;
+	[_vehicle] remoteExec ["FNC_ACTIVATE",0];
+};
+
+
+
+FNC_DEACTIVATE = {
+	_tplane2 = _this select 0;
+	planeammo2="false";
+	publicVariable "planeammo2";
+	removeAction[_id1];
+	removeAction[_id2];
+	removeAction[_id3];
+	removeAction[_id4];
+};
+
+FNC_REMOTE_DEACTIVATE = {
+	_vehicle = _this select 0;
+	[_vehicle] remoteExec ["FNC_DEACTIVATE",0];
+};
 
 
 	firstloop2 = true;
@@ -18,11 +51,24 @@ waitUntil { !isNil "save_is_loaded" };
 			plane2 = _savedplane;
 		} else {
 			plane2 = plane_typename createVehicle (getposATL planespawn_1);
-			0 = [plane2] execVM "scripts\uke\planearmamentmanager.sqf";
 			plane2 enableSimulationGlobal false;
 			plane2 allowdamage false;
 			plane2 setPosATL (getposATL planespawn_1);
 			plane2 setDir (getDir planespawn_1);
+
+			_id1 = objNull;
+_id2 = objNull;
+_id3 = objNull;
+_id4 = objNull; 
+_trigger = createTrigger["EmptyDetector",plane2,true];
+_trig = _trigger attachTo [plane2,[0,0,0]];
+_trigger setTriggerArea[20,20,0,false,20];
+_trigger setTriggerActivation ["ANY","PRESENT",true];
+_trigger setTriggerStatements["ammocrate in thisList","[plane2] call FNC_REMOTE_ACTIVATE","[plane2] call FNC_REMOTE_DEACTIVATE"];
+_id1 = plane2 addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","planeammo2=='true'",4];
+_id2 = plane2 addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","planeammo2=='true'",4];
+_id3 = plane2 addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","planeammo2=='true'",4];
+_id4 = plane2 addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","planeammo2=='true'",4];
 		};
 
 		firstloop2 = false;
@@ -51,7 +97,7 @@ waitUntil { !isNil "save_is_loaded" };
 				sleep 1;
 				!alive plane2;
 			};
-			//stats_spartan_respawns = stats_spartan_respawns + 1;
+			
 			sleep 15;
 
 		};

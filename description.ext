@@ -7,7 +7,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 loadScreen="res\liberation.jpg";
-onLoadMission = "www.killahpotatoes.de-Dedicated to the Memory of [UKE]Baz";
+onLoadMission = "www.killahpotatoes.de";
 author = "[GREUH] Zbug, [GREUH] McKeewa, [KP] Wyqer";
 onLoadName = $STR_MISSION_TITLE;
 
@@ -50,6 +50,8 @@ class CfgRemoteExec
                class FNC_RemoteClusters { allowedTargets=0; };
                class FNC_RemoteATGM { allowedTargets=0; };
                class FNC_RemoteGBU { allowedTargets=0; };
+               class FNC_ACTIVATE {allowedTargets=0;};
+               class FNC_DEACTIVATE {allowedTargets=0;};
 
        };        
        // List of script commands allowed to be sent from client via remoteExec
