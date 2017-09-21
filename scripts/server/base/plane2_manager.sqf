@@ -1,23 +1,37 @@
 waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { !isNil "save_is_loaded" };
 [] call compileFinal preprocessFileLineNumbers "scripts\uke\planearmamentmanager.sqf";
-
+_id1 = objNull;_id2 = objNull;
+_id3 = objNull;
+_id4 = objNull; 
 FNC_ACTIVATE = {
-	hint "test";
-	planeammo2="true";
-	publicVariable "planeammo2";
-	//_id1 = plane addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","planeammo=='true'",4];
-	//_id2 = plane addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","planeammo=='true'",4];
-	//_id3 = plane addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","planeammo=='true'",4];
-	//_id4 = plane addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","planeammo=='true'",4];
+	params["_vehicle"];
+
+	_id1 = plane2 addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","",4];
+	_id2 = plane2 addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","",4];
+	_id3 = plane2 addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","",4];
+    _id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","",4];
+};
+publicVariable "FNC_ACTIVATE";
+FNC_REMOTE_ACTIVATE = {
+	_vehicle = _this select 0;
+	[_vehicle] remoteExecCall ["FNC_ACTIVATE",0,"plane2on"];
+	
+
+FNC_REMOTE_DEACTIVATE = {
+	_vehicle = _this select 0;
+	[_vehicle] remoteExecCall ["FNC_DEACTIVATE",0,"plane2off"];
 };
 
 FNC_DEACTIVATE = {
-	planeammo2="false";
-	publicVariable "planeammo2";
-	//removeAllActions plane;
+	params[_vehicle];
+	_vehicle removeAction _id1;
+	_vehicle removeAction _id2;
+	_vehicle removeAction _id3;
+	_vehicle removeAction _id4;
+	
 };
-
+publicVariable "FNC_DEACTIVATE";
 	firstloop2 = true;
 	plane2 = objNull;
 	_savedplane = objNull;
@@ -40,40 +54,19 @@ FNC_DEACTIVATE = {
 			plane2 setDir (getDir planespawn_1);
 
 			
-_id1 = objNull;
-_id2 = objNull;
-_id3 = objNull;
-_id4 = objNull; 
+
 _trigger = createTrigger["EmptyDetector",plane2,true];
 _trig = _trigger attachTo [plane2,[0,0,0]];
 _trigger setTriggerArea[20,20,0,false,20];
 _trigger setTriggerActivation ["ANY","PRESENT",true];
-_trigger setTriggerStatements["ammocrate in thisList","call FNC_ACTIVATE","call FNC_DEACTIVATE"];
-_id1 = plane addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","planeammo2=='true'",4];
-_id2 = plane addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","planeammo2=='true'",4];
-_id3 = plane addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","planeammo2=='true'",4];
-_id4 = plane addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","planeammo2=='true'",4];
+_trigger setTriggerStatements["ammocrate in thisList","[plane2] call FNC_REMOTE_ACTIVATE","[plane2] call FNC_REMOTE_DEACTIVATE"];
 
-planeammo2 addPublicVariableEventHandler {
-	if(planeammo2 == "true") then 
-	{
-	_id1 = plane addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","planeammo2=='true'",4];
-	_id2 = plane addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","planeammo2=='true'",4];
-	_id3 = plane addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","planeammo2=='true'",4];
-	_id4 = plane addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","planeammo2=='true'",4];
-	} else
-	{
-		removeAction _id1;
-		removeAction _id2;
-		removeAction _id3;
-		removeAction _id4;
-	};
-};
 		};
 
 		firstloop2 = false;
 
-	
+		planeammo2 = "false";
+		publicVariable "planeammo2";
 		publicVariable "plane2";
 		clearWeaponCargoGlobal plane2;
 		clearMagazineCargoGlobal plane2; 

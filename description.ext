@@ -50,6 +50,12 @@ class CfgRemoteExec
                class FNC_RemoteClusters { allowedTargets=0; };
                class FNC_RemoteATGM { allowedTargets=0; };
                class FNC_RemoteGBU { allowedTargets=0; };
+               class FNC_LoadIA { allowedTargets=0; };
+               class FNC_LoadClusters { allowedTargets=0; };
+               class FNC_LoadATGM { allowedTargets=0; };
+               class FNC_LoadGBU { allowedTargets=0; };
+               class FNC_REMOTE_ACTIVATE {allowedTargets=0;};
+               class FNC_REMOTE_DEACTIVATE {allowedTargets=0;};
                class FNC_ACTIVATE {allowedTargets=0;};
                class FNC_DEACTIVATE {allowedTargets=0;};
 
@@ -58,6 +64,7 @@ class CfgRemoteExec
        class Commands
        {
               /*your commands here*/
-              class YourCommand1 { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+              class addAction { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+              class execVM {allowedTargets=0; jip=0;}
 	};
 };

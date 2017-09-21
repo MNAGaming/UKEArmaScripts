@@ -47,6 +47,14 @@ FNC_LoadIA = {
 { _vehicle setPylonLoadOut [_forEachIndex + 1, _x, true, _pylonPaths select _forEachIndex] } forEach _pylons;
 	_vehicle setFuel _tfuel;
 };
+publicVariable "FNC_LoadIA";
+publicVariable "FNC_LoadATGM";
+publicVariable "FNC_LoadClusters";
+publicVariable "FNC_LoadGBU";
+publicVariable "FNC_RemoteIA";
+publicVariable "FNC_RemoteATGM";
+publicVariable "FNC_RemoteClusters";
+publicVariable "FNC_RemoteGBU";
 
 FNC_RemoteIA = {
 	_vehicle = _this select 0;
