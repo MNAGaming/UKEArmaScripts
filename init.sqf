@@ -33,7 +33,7 @@ if (!isDedicated && !hasInterface && isMultiplayer) then {
 
 if (hasInterface || isServer) then
 {
-	[] call compileFinal preprocessFileLineNumbers "addons\welcome\welcome.sqf";
+	[] call compileFinal preprocessFileLineNumbers "scripts\uke\welcome.sqf";
 };
 
 if (!isDedicated && hasInterface) then {
