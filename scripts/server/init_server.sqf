@@ -43,9 +43,9 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 plane=objNull;
 
 plane2=objNull;
-
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\plane_manager.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\plane2_manager.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\aclandrover_manager.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane_manager.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane2_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startvehicle_spawn.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\counter_battlegroup.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\random_battlegroups.sqf";

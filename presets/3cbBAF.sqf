@@ -12,7 +12,8 @@ FOB_truck_typename = "B_Truck_01_box_F";									// This is the FOB as a vehicle
 Arsenal_typename = "B_supplyCrate_F";										// This is the virtual arsenal as portable supply crates.  																				Default is "B_supplyCrate_F".
 Respawn_truck_typename = "UK3CB_BAF_LandRover_Amb_FFR_Green_A_MTP";			// This is the mobile respawn (and medical) truck. 																						Default is "B_Truck_01_medical_F".
 huron_typename = "UK3CB_BAF_Merlin_HC3_18_MTP";								// This is Spartan 01, a multipurpose mobile respawn as a helicopter.                                                                   Default is "B_Heli_Transport_03_unarmed_F".
-plane_typename = "B_Plane_Fighter_01_F"; 							//carrier plane item. 																	
+plane_typename = "B_Plane_Fighter_01_F"; 							//carrier plane item.
+rover_typename = "UK3CB_BAF_LandRover_Hard_UN_A"; 														//carrier landrover for towing			
 opfor_ammobox_transport = "RHS_Ural_Open_MSV_01";							// Make sure this thing can transport ammo boxes (see box_transport_config in kp_liberation_config.sqf) otherwise things will break!	Default is "O_Truck_03_transport_F".
 crewman_classname = "UK3CB_BAF_Crewman_MTP";								// This defines the crew for vehicles. 																									Default is "B_crew_F".
 pilot_classname = "UK3CB_BAF_HeliPilot_Army_MTP";							// This defines the pilot for helicopters. 																								Default is "B_Helipilot_F".
@@ -115,8 +116,8 @@ air_vehicles = [
 	["FIR_F15E",1250,1500,450],											//F-15E Strike Eagle
 	["JS_JC_FA18E",1500,1750,450],										//F/A-18 E Super Hornet
 	["JS_JC_FA18F",1500,1750,450],										//F/A-18 F Super Hornet
-	["B_Plane_Fighter_01_F",1500,1750,450],								//F/A-181 Black Wasp II
-	["B_Plane_Fighter_01_Stealth_F",1500,1750,450],						//F/A-181 Black Wasp II (Stealth)
+	//["B_Plane_Fighter_01_F",1500,1750,450],								//F/A-181 Black Wasp II
+	//["B_Plane_Fighter_01_Stealth_F",1500,1750,450],						//F/A-181 Black Wasp II (Stealth)
 	["B_T_VTOL_01_armed_F",750,1500,500],								//V-44 X Blackfish (Armed)
 	["B_T_VTOL_01_infantry_F",750,0,500],								//V-44 X Blackfish (Infantry)
 	["B_T_VTOL_01_vehicle_F",750,0,500]									//V-44 X Blackfish (Vehicle)
@@ -525,9 +526,10 @@ elite_vehicles = [
 	"FIR_F15E",															//F-15E Strike Eagle
 	"JS_JC_FA18E",														//F/A-18 E Super Hornet
 	"JS_JC_FA18F",														//F/A-18 F Super Hornet
-	"B_Plane_Fighter_01_F",												//F/A-181 Black Wasp II
-	"B_Plane_Fighter_01_Stealth_F",										//F/A-181 Black Wasp II (Stealth)
-	"B_T_VTOL_01_armed_F"												//V-44 X Blackfish (Armed)
+	//"B_Plane_Fighter_01_F",												//F/A-181 Black Wasp II
+	//"B_Plane_Fighter_01_Stealth_F",										//F/A-181 Black Wasp II (Stealth)
+	"B_T_VTOL_01_armed_F",
+	"B_Plane_CAS_01_F"												//V-44 X Blackfish (Armed)
 ];
 
 if (KP_liberation_debug) then {private _text = format ["[KP LIBERATION] [DEBUG] Unit preset %1 intitialized for: %2", KP_liberation_preset, debug_source];_text remoteExec ["diag_log",2];};
