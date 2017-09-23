@@ -40,12 +40,6 @@ wait_to_spawn_sector = compileFinal preprocessFileLineNumbers "scripts\server\se
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startgame.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\huron_manager.sqf";
-plane=objNull;
-
-plane2=objNull;
-[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\aclandrover_manager.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane_manager.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane2_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startvehicle_spawn.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\counter_battlegroup.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\random_battlegroups.sqf";
@@ -79,10 +73,7 @@ if (KP_liberation_ailogistics) then {[] spawn compileFinal preprocessFileLineNum
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\unit_cap.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\lose_sectors.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_sectors.sqf";
-planeammo="false";
-publicVariable "planeammo";
-planeammo2="false";
-publicVariable "planeammo2";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\ukeinitserver.sqf";
 {
 	if ( (_x != player) && (_x distance (getmarkerpos GRLIB_respawn_marker) < 200 ) ) then {
 		deleteVehicle _x;

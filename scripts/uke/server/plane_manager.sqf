@@ -4,8 +4,10 @@ waitUntil { !isNil "save_is_loaded" };
 _id1 = objNull;
 _id2 = objNull;
 _id3 = objNull;
-_id4 = objNull;
-_id5 = objNull; 
+_id4 = objNull; 
+_id5 = objNull;
+_id6 = objNull;
+_id7 = objNull;
 FNC_ACTIVATE = {
 	_vehicle = _this select 0;
 
@@ -13,22 +15,26 @@ FNC_ACTIVATE = {
 	_id2 = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","",4];
 	_id3 = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","",4];
     _id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","",4];
-	_id5 = _vehicle addAction ["Load Default Armament",FNC_RemoteDefault,nil,1.5,false,true,"","",4];
+	_id5 = _vehicle addAction ["Load Mixed Bombs",FNC_RemoteMixedBombs,nil,1.5,false,true,"","",4];
+	_id6 = _vehicle addAction ["Load Default Armament",FNC_RemoteDefault,nil,1.5,false,true,"","",4];
+	_id7 = _vehicle addAction ["Load Default Cluster",FNC_RemoteDefaultCluster,nil,1.5,false,true,"","",4];
 	_vehicle setVariable ["_id1",["321",_id1],false];
 	_vehicle setVariable ["_id2",["321",_id2],false];
 	_vehicle setVariable ["_id3",["321",_id3],false];
 	_vehicle setVariable ["_id4",["321",_id4],false];
 	_vehicle setVariable ["_id5",["321",_id5],false];
+	_vehicle setVariable ["_id6",["321",_id6],false];
+	_vehicle setVariable ["_id7",["321",_id7],false];
 };
 publicVariable "FNC_ACTIVATE";
 FNC_REMOTE_ACTIVATE = {
 	_vehicle = _this select 0;
-	[_vehicle] remoteExecCall ["FNC_ACTIVATE",0,"planeon"];
+	[_vehicle] remoteExecCall ["FNC_ACTIVATE",0,"plane2on"];
 };	
 
 FNC_REMOTE_DEACTIVATE = {
 	_vehicle = _this select 0;
-	[_vehicle] remoteExecCall ["FNC_DEACTIVATE",0,"planeoff"];
+	[_vehicle] remoteExecCall ["FNC_DEACTIVATE",0,"plane2off"];
 };
 
 FNC_DEACTIVATE = {
@@ -38,11 +44,15 @@ FNC_DEACTIVATE = {
 	_id3 = _vehicle getVariable ["_id3",["NOT SET",_var]] select 1;
 	_id4 = _vehicle getVariable ["_id4",["NOT SET",_var]] select 1;
 	_id5 = _vehicle getVariable ["_id5",["NOT SET",_var]] select 1;
+	_id6 = _vehicle getVariable ["_id6",["NOT SET",_var]] select 1;
+	_id7 = _vehicle getVariable ["_id7",["NOT SET",_var]] select 1;
 	_vehicle removeAction _id1;
 	_vehicle removeAction _id2;
 	_vehicle removeAction _id3;
 	_vehicle removeAction _id4;
 	_vehicle removeAction _id5;
+	_vehicle removeAction _id6;
+	_vehicle removeAction _id7;
 	
 };
 publicVariable "FNC_DEACTIVATE";

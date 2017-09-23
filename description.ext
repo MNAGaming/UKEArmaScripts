@@ -60,6 +60,10 @@ class CfgRemoteExec
                class FNC_DEACTIVATE {allowedTargets=0;};
                class FNC_LoadDefault {allowedTargets=0;};
                class FNC_RemoteDefault {allowedTargets=0;};
+               class FNC_LoadDefaultCluster {allowedTargets=0;};
+               class FNC_RemoteDefaultCluster {allowedTargets=0;};
+               class FNC_LoadMixedBombs {allowedTargets=0;};
+               class FNC_RemoteMixedBombs {allowedTargets=0;};
 
        };        
        // List of script commands allowed to be sent from client via remoteExec

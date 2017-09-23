@@ -502,7 +502,7 @@ elite_vehicles = [
 	"rhsusf_m1a1aim_tuski_wd",											//M1A1SA (Tusk I)
 	"rhsusf_m1a2sep1tuskiiwd_usarmy",									//M1A2SEPv1 (Tusk II)
 	"rhsusf_m109_usarmy",												//M109A6
-	"RHS_AH64D_wd",														//AH-64D (Multi-Role)
+	//"RHS_AH64D_wd",														//AH-64D (Multi-Role)
 	"B_UAV_02_dynamicLoadout_F",										//MQ-4A Greyhawk
 	"B_T_UAV_03_dynamicLoadout_F",										//MQ-12 Falcon
 	"B_UAV_05_F",														//UCAV Sentinel
@@ -512,8 +512,8 @@ elite_vehicles = [
 	"FIR_F15E",															//F-15E Strike Eagle
 	"JS_JC_FA18E",														//F/A-18 E Super Hornet
 	"JS_JC_FA18F",														//F/A-18 F Super Hornet
-	"B_Plane_Fighter_01_F",												//F/A-181 Black Wasp II
-	"B_Plane_Fighter_01_Stealth_F",										//F/A-181 Black Wasp II (Stealth)
+	//"B_Plane_Fighter_01_F",												//F/A-181 Black Wasp II
+	//"B_Plane_Fighter_01_Stealth_F",										//F/A-181 Black Wasp II (Stealth)
 	"B_T_VTOL_01_armed_F"												//V-44 X Blackfish (Armed)
 ];
 
