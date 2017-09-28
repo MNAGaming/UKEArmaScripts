@@ -91,7 +91,25 @@ light_vehicles = [
 ];
 
 heavy_vehicles = [
-
+	["rhsusf_m113_usarmy",200,40,100],
+	["rhsusf_m113_usarmy_MK19",200,60,100],
+	["rhsusf_m113_usarmy_medical",200,0,100],
+	["B_APC_Wheeled_01_cannon_F",200,75,125],
+	["I_APC_Wheeled_03_cannon_F",200,75,125],
+	["B_APC_Tracked_01_rcws_F",300,100,150],
+	["I_APC_tracked_03_cannon_F",300,150,150],
+	["RHS_M2A2_BUSKI_WD",300,200,150],
+	["RHS_M2A3_BUSKIII_wd",300,250,175],
+	["B_APC_Tracked_01_AA_F",300,250,175],
+	["RHS_M6_wd",300,250,175],
+	["B_MBT_01_cannon_F",400,300,200],
+	["I_MBT_03_cannon_F",400,300,200],
+	["rhsusf_m1a1aim_tuski_wd",400,350,225],
+	["B_MBT_01_TUSK_F",500,350,225],
+	["rhsusf_m1a2sep1tuskiiwd_usarmy",500,400,250],
+	["B_MBT_01_arty_F",600,1250,300],
+	["rhsusf_m109_usarmy",600,1250,300],
+	["B_MBT_01_mlrs_F",800,1750,400]
 ];
 
 air_vehicles = [
@@ -404,8 +422,11 @@ opfor_vehicles = [
 	"rhs_brm1k_vdv",													//BRM-1K
 	"rhs_zsu234_aa",													//ZSU-23-4V
 	"rhs_zsu234_aa",													//ZSU-23-4V
+	"O_APC_Tracked_02_AA_F",
 	"rhs_bmd4ma_vdv",													//BMD-4M (A)
-	"rhs_bmd4ma_vdv"													//BMD-4M (A)
+	"rhs_bmd4ma_vdv",													//BMD-4M (A)
+	"rhs_t90a_tv",
+	"rhs_t90a_tv"
 ];
 
 // All enemy vehicles that can spawn as sector defenders and patrols but at a lower enemy combat readiness (aggression levels).
@@ -428,8 +449,11 @@ opfor_battlegroup_vehicles = [
 	"rhs_brm1k_vdv",													//BRM-1K
 	"rhs_zsu234_aa",													//ZSU-23-4V
 	"rhs_zsu234_aa",													//ZSU-23-4V
+	"O_APC_Tracked_02_AA_F",
 	"rhs_bmd4ma_vdv",													//BMD-4M (A)
 	"rhs_bmd4ma_vdv",													//BMD-4M (A)
+	"rhs_t90a_tv",
+	"rhs_t90a_tv",
 	"RHS_Mi24P_AT_vvsc",												//Mi-24P (AT)
 	"RHS_Mi24V_AT_vvsc",												//Mi-24V (AT)
 	"RHS_Mi8mt_Cargo_vvsc",												//Mi-8MT (Cargo)
@@ -474,7 +498,9 @@ opfor_choppers = [
 // Enemy fixed-wings that will need to spawn in the air.
 opfor_air = [
 	"RHS_Su25SM_vvsc",													//Su-25
-	"RHS_Su25SM_KH29_vvsc"												//Su-25 (KH29)
+	"RHS_Su25SM_KH29_vvsc",												//Su-25 (KH29)
+	"O_Plane_Fighter_02_F"
+
 ];
 
 /*	- Other various mission classnames.
