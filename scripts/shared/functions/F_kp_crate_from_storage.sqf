@@ -24,11 +24,11 @@ switch (typeOf _storage) do {
 };
 
 _i = 0;
-_unload_pos = [_storage, _unload_distance, (getDir _storage) - 180] call BIS_fnc_relPos;
+_unload_pos = _storage getPos [_unload_distance, (getDir _storage) - 180];
 
 while {!((nearestObjects [_unload_pos,KP_liberation_crates,1]) isEqualTo [])} do {
 	_i = _i + 1;
-	_unload_pos = [_storage, _unload_distance + _i * 1.8, (getDir _storage) - 180] call BIS_fnc_relPos;
+	_unload_pos = _storage getPos [_unload_distance + _i * 1.8, (getDir _storage) - 180];
 };
 
 sleep 0.5;
@@ -47,7 +47,8 @@ reverse _stored_crates;
 		clearItemCargoGlobal _x;
 		
 		_x setPos _unload_pos;
-		[_x, true] remoteExec ["enableRopeAttach",_x];
+		[_x, true] remoteExec ["enableRopeAttach"];
+		if(KP_liberation_ace) then {[_x, true, [0, 1.5, 0], 0] remoteExec ["ace_dragging_fnc_setCarryable"];};
 		_unloaded = true;
 	};
 	if (_unloaded) exitWith {

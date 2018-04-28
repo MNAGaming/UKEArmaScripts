@@ -93,7 +93,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_mk18_KAC_wd",
 	"rhs_weap_mk18_m320",
 	"rhs_weap_mk18_wd",
-	"rhs_weap_optic_smaw",
 	"rhs_weap_SidewinderLauncher",
 	"rhs_weap_smaw",
 	"rhs_weap_smaw_green",
@@ -118,7 +117,6 @@ GRLIB_arsenal_weapons = [
 	"rhsusf_weap_MP7A2_aor1",
 	"rhsusf_weap_MP7A2_desert",
 	"rhsusf_weap_MP7A2_winter"
-
 ];
 
 GRLIB_arsenal_magazines = [
@@ -417,7 +415,8 @@ GRLIB_arsenal_items = [
 	"rhsusf_spcs_ocp",
 	"rhsusf_spcs_ocp_rifleman",
 	"rhsusf_spcs_ucp",
-	"rhsusf_spcs_ucp_rifleman"
+	"rhsusf_spcs_ucp_rifleman",
+	"rhs_weap_optic_smaw"
 ];
 
 GRLIB_arsenal_backpacks = [

@@ -17,7 +17,7 @@ _base_position = markerpos _spawn_marker;
 _base_objects = [];
 _base_objectives = [];
 _base_defenders = [];
-_template = ([] call (compile preprocessFileLineNumbers ( _fob_templates call bis_fnc_selectrandom )));
+_template = ([] call (compile preprocessFileLineNumbers (selectRandom _fob_templates)));
 
 _objects_to_build = _template select 0;
 _objectives_to_build = _template select 1;
@@ -32,11 +32,11 @@ _base_corners =  _template select 3;
 
 	_nextobject = _nextclass createVehicle _nextpos;
 	_nextobject setVectorUp [0,0,1];
-	_nextobject setpos _nextpos;
 	_nextobject setdir _nextdir;
+	_nextobject setpos _nextpos;
 	_nextobject setVectorUp [0,0,1];
-	_nextobject setpos _nextpos;
 	_nextobject setdir _nextdir;
+	_nextobject setpos _nextpos;
 	_base_objects = _base_objects + [_nextobject];
 
 } foreach _objects_to_build;
@@ -65,7 +65,7 @@ sleep 1;
 
 { _x setDamage 0; } foreach (_base_objectives + _base_objects);
 
-_grpdefenders = createGroup GRLIB_side_enemy;
+_grpdefenders = createGroup [GRLIB_side_enemy, true];
 _idxselected = [];
 while { count _idxselected < _defenders_amount } do {
 	_idx = floor (random (count _defenders_to_build));
@@ -88,7 +88,7 @@ while { count _idxselected < _defenders_amount } do {
 
 _sentry = ceil ((3 + (floor (random 4))) * ( sqrt ( GRLIB_unitcap ) ) );
 
-_grpsentry = createGroup GRLIB_side_enemy;
+_grpsentry = createGroup [GRLIB_side_enemy, true];
 _base_sentry_pos = [(_base_position select 0) + ((_base_corners select 0) select 0), (_base_position select 1) + ((_base_corners select 0) select 1),0];
 for [ {_idx=0},{_idx < _sentry},{_idx=_idx+1} ] do {
 	opfor_sentry createUnit [_base_sentry_pos, _grpsentry,"this addMPEventHandler [""MPKilled"", {_this spawn kill_manager}]", 0.5, "private"];

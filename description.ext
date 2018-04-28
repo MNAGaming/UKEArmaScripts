@@ -7,7 +7,7 @@ enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 loadScreen="res\liberation.jpg";
-onLoadMission = "www.killahpotatoes.de-Dedicated to the Memory of [UKE]Baz";
+onLoadMission = "www.killahpotatoes.de";
 author = "[GREUH] Zbug, [GREUH] McKeewa, [KP] Wyqer";
 onLoadName = $STR_MISSION_TITLE;
 
@@ -64,6 +64,16 @@ class CfgRemoteExec
                class FNC_RemoteDefaultCluster {allowedTargets=0;};
                class FNC_LoadMixedBombs {allowedTargets=0;};
                class FNC_RemoteMixedBombs {allowedTargets=0;};
+               class FNC_REMOTE_ACTIVATE_UCAV {allowedTargets=0;};
+               class FNC_REMOTE_DEACTIVATE_UCAV {allowedTargets=0;};
+               class FNC_ACTIVATEUCAV {allowedTargets=0;};
+               class FNC_DEACTIVATEUCAV {allowedTargets=0;};
+               class FNC_RemoteMixedUCAV { allowedTargets=0; };
+               class FNC_RemoteATGMUCAV { allowedTargets=0; };
+               class FNC_RemoteGBUUCAV { allowedTargets=0; };
+               class FNC_LoadMixedUCAV { allowedTargets=0; };
+               class FNC_LoadATGMUCAV { allowedTargets=0; };
+               class FNC_LoadGBUUCAV { allowedTargets=0; };
 
        };        
        // List of script commands allowed to be sent from client via remoteExec
