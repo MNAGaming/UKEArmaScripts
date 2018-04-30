@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1204;
+		nextID=1213;
 	};
 	class Camera
 	{
@@ -10832,7 +10832,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27483.186,24.890377,5432.4805};
+				position[]={27483.186,24.89003,5432.4805};
 			};
 			side="Empty";
 			class Attributes
@@ -10840,29 +10840,94 @@ class Mission
 			};
 			id=6430;
 			type="B_Slingload_01_Ammo_F";
-			atlOffset=209.49835;
+			atlOffset=209.498;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 		class Item521
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27482.857,24.888966,5425.3652};
+				position[]={27482.857,24.888519,5425.3657};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=6431;
 			type="B_Slingload_01_Repair_F";
+			atlOffset=209.498;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item522
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27482.504,24.890835,5418.2134};
+				position[]={27482.504,24.890442,5418.2134};
 			};
 			side="Empty";
 			class Attributes
@@ -10870,7 +10935,49 @@ class Mission
 			};
 			id=6432;
 			type="B_Slingload_01_Fuel_F";
-			atlOffset=209.4984;
+			atlOffset=209.498;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],true]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 		class Item523
 		{
