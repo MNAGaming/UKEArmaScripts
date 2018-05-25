@@ -1,12 +1,5 @@
 waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { !isNil "save_is_loaded" };
-
-_spawnType = _this select 0;
-_spawnLoc = _this select 1;
-_spawnInstance = _this select 2;
-_spawnName = _this select 3;
-_spawnOBJ = ObjNull;
-
 [] call compileFinal preprocessFileLineNumbers "scripts\uke\server\planearmamentmanager.sqf";
 _id1 = objNull;
 _id2 = objNull;
@@ -63,80 +56,70 @@ FNC_DEACTIVATE = {
 	
 };
 publicVariable "FNC_DEACTIVATE";
-	firstloop = true;
-	_spawnInstance = objNull;
+	firstloop2 = true;
+	plane2 = objNull;
 	_savedplane = objNull;
 
 	while { true } do {
 
 		{
-			/* if ( typeof _x == _spawnType) then {
-				_planename = _x getVariable "_UKEINSNAME";
-				if (_planename == _spawnName ) then {
-				_savedplane = _x;
-				};
-			}; */
-
-			if ( typeof _x == plane_typename && _x == _spawnInstance ) then {
+			if ( typeof _x == plane_typename && _x ==plane2 ) then {
 				_savedplane = _x;
 			};
 		} foreach vehicles;
 
-		if ( firstloop && !isNull _savedplane ) then {
-			_spawnInstance = _savedplane;
+		if ( firstloop2 && !isNull _savedplane ) then {
+			plane2 = _savedplane;
 		} else {
-			_spawnInstance = _spawnType createVehicle (getposATL _spawnLoc);
-			_spawnInstance setVariable ["_UKEINSNAME",_spawnName,true];
-			_spawnInstance enableSimulationGlobal false;
-			_spawnInstance allowdamage false;
-			_spawnInstance setPosATL (getposATL _spawnLoc);
-			_spawnInstance setDir (getDir _spawnLoc);
+			plane2 = plane_typename createVehicle (getposATL planespawn_1);
+			plane2 enableSimulationGlobal false;
+			plane2 allowdamage false;
+			plane2 setPosATL (getposATL planespawn_1);
+			plane2 setDir (getDir planespawn_1);
 
 			
 
-_trigger = createTrigger["EmptyDetector",_spawnInstance,true];
-_trig = _trigger attachTo [_spawnInstance,[0,0,0]];
+_trigger = createTrigger["EmptyDetector",plane2,true];
+_trig = _trigger attachTo [plane2,[0,0,0]];
 _trigger setTriggerArea[20,20,0,false,20];
 _trigger setTriggerActivation ["ANY","PRESENT",true];
-planex2 = _spawnInstance;
-_trigger setTriggerStatements["{_x isKindOf 'B_Slingload_01_Ammo_F'} count thisList > 0","[_spawnOBJ] call FNC_REMOTE_ACTIVATE","[_spawnOBJ] call FNC_REMOTE_DEACTIVATE"];
+_trigger setTriggerStatements["{_x isKindOf 'B_Slingload_01_Ammo_F'} count thisList > 0","[plane2] call FNC_REMOTE_ACTIVATE","[plane2] call FNC_REMOTE_DEACTIVATE"];
 
 		};
 
-		firstloop = false;
-		_spawnOBJ = _spawnName;
-		missionNamespace setVariable [format["%1",_spawnOBJ], _spawnInstance];
-		//missionNamespace setVariable [_spawnName,_spawnInstance];
-		publicVariable [format["%1",_spawnOBJ]];
-		//publicVariable "_spawnInstance";
-		clearWeaponCargoGlobal _spawnInstance;
-		clearMagazineCargoGlobal _spawnInstance; 
-		clearItemCargoGlobal _spawnInstance;
-		clearBackpackCargoGlobal _spawnInstance;
-		_spawnInstance setDamage 0;
+		firstloop2 = false;
+
+		planeammo2 = "false";
+		publicVariable "planeammo2";
+		publicVariable "plane2";
+		clearWeaponCargoGlobal plane2;
+		clearMagazineCargoGlobal plane2; 
+		clearItemCargoGlobal plane2;
+		clearBackpackCargoGlobal plane2;
+		plane2 setDamage 0;
 		sleep 0.5;
-		_spawnInstance enableSimulationGlobal true;
-		_spawnInstance setDamage 0;
-		_spawnInstance setVariable ["ace_medical_medicClass", 1, true];
+		plane2 enableSimulationGlobal true;
+		plane2 setDamage 0;
+		plane2 setVariable ["ace_medical_medicClass", 1, true];
 		sleep 1.5;
 
-		_spawnInstance setDamage 0;
-		_spawnInstance allowdamage true;
+		plane2 setDamage 0;
+		plane2 allowdamage true;
 
-		//if (KP_liberation_debug) then {private _text = format ["[KP LIBERATION] [DEBUG] plane spawned by: %1", debug_source];_text remoteExec ["diag_log",2];};
+		//if (KP_liberation_debug) then {private _text = format ["[KP LIBERATION] [DEBUG] plane2 spawned by: %1", debug_source];_text remoteExec ["diag_log",2];};
 
-		if ( alive _spawnInstance ) then {
+		if ( alive plane2 ) then {
 
 			waitUntil {
 				sleep 1;
-				!alive _spawnInstance;
+				!alive plane2;
 			};
 			sleep 15;
 
 		};
 
-		if (_spawnInstance distance startbase < 500) then {
-			deletevehicle _spawnInstance;
+		if (plane2 distance startbase < 500) then {
+			deletevehicle plane2;
 		};
 		sleep 0.25;
 	

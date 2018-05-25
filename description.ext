@@ -80,7 +80,7 @@ class CfgRemoteExec
        class Commands
        {
               /*your commands here*/
-              class addAction { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
-              class execVM {allowedTargets=0; jip=0;}
+              class addAction { allowedTargets=0; jip=1; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+              //class execVM {allowedTargets=0; jip=0;}
 	};
 };
