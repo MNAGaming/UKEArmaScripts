@@ -68,7 +68,7 @@ publicVariable "FNC_DEACTIVATE";
 			};
 		} foreach vehicles;
 
-		if ( firstloop && !isNull _savedplane ) then {
+		if ( firstloop2 && !isNull _savedplane ) then {
 			plane2 = _savedplane;
 		} else {
 			plane2 = plane_typename createVehicle (getposATL planespawn_1);

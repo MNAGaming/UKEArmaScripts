@@ -7,63 +7,7 @@ _spawnInstance = _this select 2;
 _spawnName = _this select 3;
 _spawnOBJ = ObjNull;
 
-[] call compileFinal preprocessFileLineNumbers "scripts\uke\server\planearmamentmanager.sqf";
-_id1 = objNull;
-_id2 = objNull;
-_id3 = objNull;
-_id4 = objNull; 
-_id5 = objNull;
-_id6 = objNull;
-_id7 = objNull;
-FNC_ACTIVATE = {
-	_vehicle = _this select 0;
-
-	_id1 = _vehicle addAction ["Load Cluster Armament",FNC_RemoteClusters,nil,1.5,false,true,"","",4];
-	_id2 = _vehicle addAction ["Load GBU Armament",FNC_RemoteGBU,nil,1.5,false,true,"","",4];
-	_id3 = _vehicle addAction ["Load ATGM Armament",FNC_RemoteATGM,nil,1.5,false,true,"","",4];
-    _id4 = _vehicle addAction ["Load Interceptor Armament",FNC_RemoteIA,nil,1.5,false,true,"","",4];
-	_id5 = _vehicle addAction ["Load Mixed Bombs",FNC_RemoteMixedBombs,nil,1.5,false,true,"","",4];
-	_id6 = _vehicle addAction ["Load Default Armament",FNC_RemoteDefault,nil,1.5,false,true,"","",4];
-	_id7 = _vehicle addAction ["Load Default Cluster",FNC_RemoteDefaultCluster,nil,1.5,false,true,"","",4];
-	_vehicle setVariable ["_id1",["321",_id1],false];
-	_vehicle setVariable ["_id2",["321",_id2],false];
-	_vehicle setVariable ["_id3",["321",_id3],false];
-	_vehicle setVariable ["_id4",["321",_id4],false];
-	_vehicle setVariable ["_id5",["321",_id5],false];
-	_vehicle setVariable ["_id6",["321",_id6],false];
-	_vehicle setVariable ["_id7",["321",_id7],false];
-};
-publicVariable "FNC_ACTIVATE";
-FNC_REMOTE_ACTIVATE = {
-	_vehicle = _this select 0;
-	[_vehicle] remoteExecCall ["FNC_ACTIVATE",0,"plane2on"];
-};	
-
-FNC_REMOTE_DEACTIVATE = {
-	_vehicle = _this select 0;
-	[_vehicle] remoteExecCall ["FNC_DEACTIVATE",0,"plane2off"];
-};
-
-FNC_DEACTIVATE = {
-	_vehicle = _this select 0;
-	_id1 = _vehicle getVariable ["_id1",["NOT SET",_var]] select 1;
-	_id2 = _vehicle getVariable ["_id2",["NOT SET",_var]] select 1;
-	_id3 = _vehicle getVariable ["_id3",["NOT SET",_var]] select 1;
-	_id4 = _vehicle getVariable ["_id4",["NOT SET",_var]] select 1;
-	_id5 = _vehicle getVariable ["_id5",["NOT SET",_var]] select 1;
-	_id6 = _vehicle getVariable ["_id6",["NOT SET",_var]] select 1;
-	_id7 = _vehicle getVariable ["_id7",["NOT SET",_var]] select 1;
-	_vehicle removeAction _id1;
-	_vehicle removeAction _id2;
-	_vehicle removeAction _id3;
-	_vehicle removeAction _id4;
-	_vehicle removeAction _id5;
-	_vehicle removeAction _id6;
-	_vehicle removeAction _id7;
-	
-};
-publicVariable "FNC_DEACTIVATE";
-	firstloop = true;
+	_firstloop = true;
 	_spawnInstance = objNull;
 	_savedplane = objNull;
 
@@ -76,13 +20,14 @@ publicVariable "FNC_DEACTIVATE";
 				_savedplane = _x;
 				};
 			}; */
-
-			if ( typeof _x == plane_typename && _x == _spawnInstance ) then {
-				_savedplane = _x;
+				if ( !isNull _spawnInstance ) then {
+					if ( typeof _x == plane_typename && _x == _spawnInstance ) then {
+					_savedplane = _x;
+				}
 			};
 		} foreach vehicles;
 
-		if ( firstloop && !isNull _savedplane ) then {
+		if ( _firstloop && !isNull _savedplane ) then {
 			_spawnInstance = _savedplane;
 		} else {
 			_spawnInstance = _spawnType createVehicle (getposATL _spawnLoc);
@@ -92,22 +37,12 @@ publicVariable "FNC_DEACTIVATE";
 			_spawnInstance setPosATL (getposATL _spawnLoc);
 			_spawnInstance setDir (getDir _spawnLoc);
 
-			
-
-_trigger = createTrigger["EmptyDetector",_spawnInstance,true];
-_trig = _trigger attachTo [_spawnInstance,[0,0,0]];
-_trigger setTriggerArea[20,20,0,false,20];
-_trigger setTriggerActivation ["ANY","PRESENT",true];
-planex2 = _spawnInstance;
-_trigger setTriggerStatements["{_x isKindOf 'B_Slingload_01_Ammo_F'} count thisList > 0","[_spawnOBJ] call FNC_REMOTE_ACTIVATE","[_spawnOBJ] call FNC_REMOTE_DEACTIVATE"];
-
 		};
 
-		firstloop = false;
+		_firstloop = false;
 		_spawnOBJ = _spawnName;
 		missionNamespace setVariable [format["%1",_spawnOBJ], _spawnInstance];
 		//missionNamespace setVariable [_spawnName,_spawnInstance];
-		publicVariable [format["%1",_spawnOBJ]];
 		//publicVariable "_spawnInstance";
 		clearWeaponCargoGlobal _spawnInstance;
 		clearMagazineCargoGlobal _spawnInstance; 

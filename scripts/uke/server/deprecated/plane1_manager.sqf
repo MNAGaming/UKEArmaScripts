@@ -56,7 +56,7 @@ FNC_DEACTIVATE = {
 	
 };
 publicVariable "FNC_DEACTIVATE";
-	firstloop = true;
+	firstloop5 = true;
 	plane = objNull;
 	_savedplane = objNull;
 
@@ -68,7 +68,7 @@ publicVariable "FNC_DEACTIVATE";
 			};
 		} foreach vehicles;
 
-		if ( firstloop && !isNull _savedplane ) then {
+		if ( firstloop5 && !isNull _savedplane ) then {
 			plane = _savedplane;
 		} else {
 			plane = plane_typename createVehicle (getposATL planespawn_0);
@@ -87,7 +87,7 @@ _trigger setTriggerStatements["{_x isKindOf 'B_Slingload_01_Ammo_F'} count thisL
 
 		};
 
-		firstloop = false;
+		firstloop5 = false;
 
 		
 		publicVariable "plane";

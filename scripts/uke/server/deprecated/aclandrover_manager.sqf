@@ -13,14 +13,14 @@ while { true } do {
 		};
 	} foreach vehicles;
 
-	if ( firstloop && !isNull _savedrover ) then {
+	if ( firstloop3 && !isNull _savedrover ) then {
 		rover = _savedrover;
 	} else {
-		rover = rover_typename createVehicle (getposATL aclandyspawn);
+		rover = rover_typename createVehicle (getposATL aclandyspawn_0);
 		rover enableSimulationGlobal false;
 		rover allowdamage false;
-		rover setPosATL (getposATL aclandyspawn);
-		rover setDir (getDir aclandyspawn);
+		rover setPosATL (getposATL aclandyspawn_0);
+		rover setDir (getDir aclandyspawn_0);
 		_trigger = createTrigger["EmptyDetector",rover,true];
 	_trig = _trigger attachTo [rover,[0,0,0]];
 	_trigger setTriggerArea[0,0,0,false,20];

@@ -91,6 +91,8 @@ while { true } do {
 				_idactvector = player addAction ["<t color='#B0FF00'>" + localize "STR_VECACTION" + "</t>",{KP_vector = !KP_vector;},"",-800,false,false,"","build_confirmed == 1"];
 			};
 
+			
+
 			_idactrotate = player addAction ["<t color='#B0FF00'>" + localize "STR_ROTATION" + "</t> <img size='2' image='res\ui_rotation.paa'/>","scripts\client\build\build_rotate.sqf","",-750,false,false,"","build_confirmed == 1"];
 			_idactraise = player addAction ["<t color='#B0FF00'>" + localize "STR_RAISE" + "</t>","scripts\client\build\build_raise.sqf","",-765,false,false,"","build_confirmed == 1"];
 			_idactlower = player addAction ["<t color='#B0FF00'>" + localize "STR_LOWER" + "</t>","scripts\client\build\build_lower.sqf","",-766,false,false,"","build_confirmed == 1"];
@@ -103,6 +105,10 @@ while { true } do {
 			_vehicle setVehicleLock "LOCKED";
 			_vehicle enableSimulationGlobal false;
 			_vehicle setVariable ["KP_liberation_preplaced", true, true];
+
+			
+				
+			
 
 			_dist = 0.6 * (sizeOf _classname);
 			if (_dist < 3.5) then { _dist = 3.5 };
@@ -334,8 +340,10 @@ while { true } do {
 					case "Flag_White_F": {_vehicle setFlagTexture "res\kpflag.jpg";};
 					case KP_liberation_small_storage_building;
 					case KP_liberation_large_storage_building: {_vehicle setVariable ["KP_liberation_storage_type", 0, true];};
+					
 					default {};
 				};
+				_customcode = [_classname,_vehicle] spawn compile preprocessFileLineNumbers "scripts\uke\server\custombuildaction.sqf";
 
 				if (_classname in KP_liberation_medical_vehicles) then {
 					_vehicle setVariable ["ace_medical_medicClass", 1, true];

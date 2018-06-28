@@ -283,7 +283,7 @@ support_vehicles = [
 	["B_T_APC_Tracked_01_CRV_F",500,250,350],							//CRV-6e Bobcat
 	["B_T_Truck_01_Repair_F",325,0,75],									//HEMTT Repair
 	["B_T_Truck_01_fuel_F",125,0,275],									//HEMTT Fuel
-	["B_T_Truck_01_ammo_F",125,200,75],									//HEMTT Ammo
+	["B_T_Truck_01_ammo_F",0,0,0],									//HEMTT Ammo ["B_T_Truck_01_ammo_F",125,200,75],	
 	["rhsusf_M977A4_REPAIR_BKIT_usarmy_wd",325,0,75],					//M977A4 Repair
 	["rhsusf_M978A4_BKIT_usarmy_wd",125,0,275],							//M978A4 Fuel
 	["rhsusf_M977A4_AMMO_BKIT_usarmy_wd",125,200,75],					//M977A4 Ammo

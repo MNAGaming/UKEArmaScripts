@@ -8,22 +8,22 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=6439;
+		nextID=6442;
 	};
 	class MarkerIDProvider
 	{
-		nextID=336;
+		nextID=337;
 	};
 	class LayerIndexProvider
 	{
-		nextID=1249;
+		nextID=1339;
 	};
 	class Camera
 	{
-		pos[]={27377.857,66.372559,5392.8281};
-		dir[]={0.81451172,-0.44783345,-0.36909029};
-		up[]={0.40791968,0.89409357,-0.18484609};
-		aside[]={-0.41278848,2.1688174e-007,-0.91094363};
+		pos[]={27439.68,104.74111,5485.5459};
+		dir[]={0.37444502,-0.7343263,-0.56639093};
+		up[]={0.40495104,0.67879748,-0.61253804};
+		aside[]={-0.83429009,5.7904981e-007,-0.55155075};
 	};
 };
 binarizationWanted=0;
@@ -288,7 +288,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=525;
+		items=526;
 		class Item0
 		{
 			dataType="Marker";
@@ -10832,11 +10832,12 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27483.186,24.89003,5432.4805};
+				position[]={27489.814,24.89003,5433.6367};
 			};
 			side="Empty";
 			class Attributes
 			{
+				init="if (isServer) then {_add = this call GOM_fnc_addAircraftLoadoutToObject;" \n "_ammo = [this,900,100000,0,0] spawn compileFinal preprocessFileLineNumbers ""scripts\uke\server\gom_object_refresh.sqf"";};";
 			};
 			id=6430;
 			type="B_Slingload_01_Ammo_F";
@@ -10889,11 +10890,12 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27482.857,24.888519,5425.3657};
+				position[]={27489.918,24.888519,5426.1494};
 			};
 			side="Empty";
 			class Attributes
 			{
+				init="if (isServer) then {_add = this call GOM_fnc_addAircraftLoadoutToObject;" \n "_repair = [this,900,0,0,100000] spawn compileFinal preprocessFileLineNumbers ""scripts\uke\server\gom_object_refresh.sqf"";};";
 			};
 			id=6431;
 			type="B_Slingload_01_Repair_F";
@@ -10927,11 +10929,12 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={27482.504,24.890442,5418.2134};
+				position[]={27489.844,24.890457,5417.9912};
 			};
 			side="Empty";
 			class Attributes
 			{
+				init="if (isServer) then {_add = this call GOM_fnc_addAircraftLoadoutToObject;" \n "_fuel = [this,900,0,100000,0] spawn compileFinal preprocessFileLineNumbers ""scripts\uke\server\gom_object_refresh.sqf"";};";
 			};
 			id=6432;
 			type="B_Slingload_01_Fuel_F";
@@ -11059,6 +11062,25 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item525
+		{
+			dataType="Trigger";
+			position[]={27477.572,24.714996,5423.6909};
+			class Attributes
+			{
+				name="Carrier_trigger";
+				onActivation="[thislist] remoteexec [""GOM_fnc_addAircraftLoadoutArea"",[0,-2] select isDedicated]";
+				sizeA=10;
+				sizeB=15;
+				sizeC=1;
+				repeatable=1;
+				isRectangle=1;
+				isServerOnly=1;
+			};
+			id=6440;
+			type="EmptyDetector";
+			atlOffset=1.1865501;
 		};
 	};
 };

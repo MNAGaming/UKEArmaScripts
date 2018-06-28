@@ -295,6 +295,7 @@ support_vehicles = [
 	["ACE_Wheel",10,0,0],
 	["ACE_Track",10,0,0],
 	["B_APC_Tracked_01_CRV_F",500,250,350],								//CRV-6e Bobcat
+	["B_APC_Tracked_01_CRV_F",500,250,350],								//CRV-6e Bobcat
 	["B_Truck_01_Repair_F",325,0,75],									//HEMTT Repair
 	["B_Truck_01_fuel_F",125,0,275],									//HEMTT Fuel
 	["B_Truck_01_ammo_F",125,200,75],									//HEMTT Ammo

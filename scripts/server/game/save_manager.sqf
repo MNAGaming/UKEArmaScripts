@@ -218,13 +218,14 @@ if (!isNil "greuh_liberation_savegame") then {
 			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "CAN_COLLIDE"];
 			_nextbuilding allowdamage false;
 			_nextbuilding enableSimulation false;
+			_customcode = [_nextclass,_nextbuilding] spawn compile preprocessFileLineNumbers "scripts\uke\server\custombuildaction.sqf";
 			_spawnedBuildings pushBack _nextbuilding;
 
 			// Old savegame version (Backwards compatibility)
 			if (typeName _nextvecdir == typeName 0) then {
 				_nextbuilding setPosATL _nextpos;
 				_nextbuilding setdir _nextvecdir;	// actually a number
-				_hascrew = _x param [3, false];
+				_hascrew = _x param [3, false]; 
 
 			// New savegame version
 			} else {

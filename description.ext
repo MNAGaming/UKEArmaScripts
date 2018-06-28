@@ -83,4 +83,24 @@ class CfgRemoteExec
               class addAction { allowedTargets=0; jip=1; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
               //class execVM {allowedTargets=0; jip=0;}
 	};
+
+
 };
+
+        class CfgFunctions
+{
+
+	#include "scripts\GOM\functions\GOM_fnc_functions.hpp"
+
+};
+
+
+class CfgCommunicationMenu
+{
+
+	#include "scripts\GOM\functions\GOM_fnc_aircraftLoadoutMenu.hpp"
+
+};
+
+#include "scripts\GOM\dialogs\GOM_dialog_parents.hpp"
+#include "scripts\GOM\dialogs\GOM_dialog_controls.hpp"
