@@ -16,6 +16,8 @@ if (isServer) then {
 	case "B_Truck_01_Repair_F": {_menu = [_object] spawn GOM_fnc_addAircraftLoadoutToObject;};
 	case "B_Slingload_01_Repair_F": {_menu = [_object] spawn GOM_fnc_addAircraftLoadoutToObject;
 			_repair = [_object,900,0,0,100000] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\gom_object_refresh.sqf";};
+	
+	//case "B_T_VTOL_01_armed_F": {_null = _object addMagazines ["100Rnd_105mm_HEAT_MP",50];};
 	default {};
 	
 	};
