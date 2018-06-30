@@ -12,18 +12,17 @@ if(_rovercount >= 1) then {
 }
 else {};
 
-_planeenable = ["UKECarrierPlanes",0] call BIS_fnc_getParamValue;
-if (_planeenable >= 1) then {
-[plane_typename,planespawn_0,plane,"plane"] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\planex_manager.sqf";};
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane1_manager.sqf";
+spawn1 = ["UKECarrierSpawn1",0] call BIS_fnc_getParamValue;
+spawn2 = ["UKECarrierSpawn2",0] call BIS_fnc_getParamValue;
+spawn3 = ["UKECarrierSpawn3",0] call BIS_fnc_getParamValue;
 
+if (spawn1 > 0) then {
+	[spawn1,planespawn_0,plane,"plane"] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\vehicle_respawner.sqf";
+};
 
-if (_planeenable >= 2) then {
-[plane_typename,planespawn_1,plane2,"plane2"] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\planex_manager.sqf";};
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\plane2_manager.sqf";
-
-_uavenable = ["UKECarrierUAVs",0] call BIS_fnc_getParamValue;
-if (_uavenable == 1) then {
-[uav_typename,uavspawn_0,uav] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\uavx_manager.sqf";
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\uav_manager.sqf";
+if (spawn2 > 0) then {
+	[spawn2,planespawn_1,plane2,"plane2"] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\vehicle_respawner.sqf";
+};
+if (spawn3 > 0) then {
+	[spawn3,uavspawn_0,uav] spawn compileFinal preprocessFileLineNumbers "scripts\uke\server\vehicle_respawner.sqf";
 };

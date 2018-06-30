@@ -22,7 +22,7 @@ class Params
 		title = $STR_PARAMS_UNITCAP;
 		values[] = {0,1,2,3,4,5};
 		texts[] = {$STR_PARAMS_UNITCAP1,$STR_PARAMS_UNITCAP2,$STR_PARAMS_UNITCAP3,$STR_PARAMS_UNITCAP4,$STR_PARAMS_UNITCAP5,$STR_PARAMS_UNITCAP6};
-		default = 2;
+		default = 5;
 	};
 	class Difficulty {
 		title = $STR_PARAMS_DIFFICULTY;
@@ -34,7 +34,7 @@ class Params
 		title = $STR_AGGRESSIVITY_PARAM;
 		values[] = {0,1,2,3,4};
 		texts[] = {$STR_AGGRESSIVITY_PARAM0, $STR_AGGRESSIVITY_PARAM1,$STR_AGGRESSIVITY_PARAM2,$STR_AGGRESSIVITY_PARAM3,$STR_AGGRESSIVITY_PARAM4};
-		default = 2;
+		default = 3;
 	};
 	class AdaptToPlayercount {
 		title = $STR_PARAM_ADAPT_TO_PLAYERCOUNT;
@@ -100,7 +100,7 @@ class Params
 		title = $STR_PARAMS_RESOURCESMULTIPLIER;
 		values[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
 		texts[] = { "x0.25", "x0.5", "x0.75", "x1", "x1.25","x1.5","x2","x3" };
-		default = 3;
+		default = 5;
 	};
 	class Spacer1 {
 		title = "";
@@ -130,7 +130,7 @@ class Params
 		title = $STR_A3_RequiredTrait;
 		values[] = {0,1};
 		texts[] = {$STR_A3_None,$STR_A3_Medic};
-		default = 1;
+		default = 0;
 	};
 	class ReviveMedicSpeedMultiplier {
 		title = $STR_A3_RequiredTrait_MedicSpeedMultiplier;
@@ -142,7 +142,7 @@ class Params
 		title = $STR_A3_RequiredItems;
 		values[] = {0,1,2};
 		texts[] = {$STR_A3_None,$STR_A3_Medikit,$STR_A3_FirstAidKitOrMedikit};
-		default = 1;
+		default = 2;
 	};
 	class UnconsciousStateMode {
 		title = $STR_A3_IncapacitationMode;
@@ -380,17 +380,25 @@ class Params
 		texts[] = {$STR_PARAMS_DISABLED,1,2};
 		default = 1;
 	};
-	class UKECarrierPlanes {
-		title = $STR_PARAMS_CARRIER_PLANES;
-		values[] ={0,1,2};
-		texts[] = {$STR_PARAMS_DISABLED,1,2};
-		default = 2;
+
+		class UKECarrierSpawn1 {
+		title = $STR_PARAMS_CARRIER_SPAWN1;
+		values[] ={0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {$STR_PARAMS_DISABLED,"Black Wasp","Black Wasp Stealth","Sentinel","Wipeout","Greyhawk","Falcon","BlackFoot","Pawnee","Hellcat","Ghosthawk"};
+		default = 1;
 	};
 
-	class UKECarrierUAVs {
-		title = $STR_PARAMS_CARRIER_UAVS;
-		values[] ={0,1};
-		texts[] = {$STR_PARAMS_DISABLED,1};
+		class UKECarrierSpawn2 {
+		title = $STR_PARAMS_CARRIER_SPAWN2;
+		values[] ={0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {$STR_PARAMS_DISABLED,"Black Wasp","Black Wasp Stealth","Sentinel","Wipeout","Greyhawk","Falcon","BlackFoot","Pawnee","Hellcat","Ghosthawk"};
 		default = 1;
+	};
+
+		class UKECarrierSpawn3 {
+		title = $STR_PARAMS_CARRIER_SPAWN3;
+		values[] ={0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {$STR_PARAMS_DISABLED,"Black Wasp","Black Wasp Stealth","Sentinel","Wipeout","Greyhawk","Falcon","BlackFoot","Pawnee","Hellcat","Ghosthawk"};
+		default = 7;
 	};
 };

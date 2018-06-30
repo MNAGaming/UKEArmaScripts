@@ -1,8 +1,7 @@
 private ["_classname" , "_object"];
 _classname = _this select 0;
 _object = _this select 1;
-
-if (local _object) then {
+if (isServer) then {
 	
 	switch (_classname) do {
 

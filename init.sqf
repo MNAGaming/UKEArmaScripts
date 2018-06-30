@@ -34,3 +34,4 @@ if (hasInterface || isServer) then
 [] call compileFinal preprocessFileLineNumbers "scripts\uke\client\ukeinit.sqf";
 // Execute fnc_reviveInit again (by default it executes in postInit)
 [] call bis_fnc_reviveInit;
+null = execVM "scripts\uke\irstrobe.sqf";

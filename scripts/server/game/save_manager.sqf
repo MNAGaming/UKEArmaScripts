@@ -218,7 +218,7 @@ if (!isNil "greuh_liberation_savegame") then {
 			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "CAN_COLLIDE"];
 			_nextbuilding allowdamage false;
 			_nextbuilding enableSimulation false;
-			_customcode = [_nextclass,_nextbuilding] spawn compile preprocessFileLineNumbers "scripts\uke\server\custombuildaction.sqf";
+			_customcode = [_nextclass,_nextbuilding] spawn compile preprocessFileLineNumbers "scripts\uke\server\customloadaction.sqf";
 			_spawnedBuildings pushBack _nextbuilding;
 
 			// Old savegame version (Backwards compatibility)

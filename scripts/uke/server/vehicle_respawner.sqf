@@ -1,10 +1,23 @@
 waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { !isNil "save_is_loaded" };
-
-_spawnType = _this select 0;
+private ["_spawnType"];
+_spawnID = _this select 0;
 _spawnLoc = _this select 1;
 _spawnName = _this select 2;
 
+switch (_spawnID) do {
+	case 1: {_spawnType = "B_Plane_Fighter_01_F";};
+	case 2: {_spawnType = "B_Plane_Fighter_01_Stealth_F";};
+	case 3: {_spawnType = "B_UAV_05_F";};
+	case 4: {_spawnType = "B_Plane_CAS_01_dynamicLoadout_F";};
+	case 5: {_spawnType = "B_UAV_02_dynamicLoadout_F";};
+	case 6: {_spawnType = "B_T_UAV_03_dynamicLoadout_F";};
+	case 7: {_spawnType = "B_Heli_Attack_01_dynamicLoadout_F";};
+	case 8: {_spawnType = "B_Heli_Light_01_dynamicLoadout_F";};
+	case 9: {_spawnType = "I_Heli_light_03_dynamicLoadout_F";};
+	case 10: {_spawnType = "B_Heli_Transport_01_F";};
+	default {};
+};
 
 	_firstloop = true;
 	_spawnName = objNull;
@@ -26,7 +39,9 @@ _spawnName = _this select 2;
 			_spawnName allowdamage false;
 			_spawnName setPosATL (getposATL _spawnLoc);
 			_spawnName setDir (getDir _spawnLoc);
-			createVehicleCrew (_spawnName);
+			if (unitIsUAV _spawnName) then {
+				createVehicleCrew (_spawnName);
+			};
 
 			
 		};

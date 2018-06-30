@@ -6150,5 +6150,14 @@
 		<Key ID="STR_PARAMS_CARRIER_ROVERS">
 			<Original>Carrier Spawnable Rovers </Original>
 		</Key>
+				<Key ID="STR_PARAMS_CARRIER_SPAWN1">
+			<Original>Object to spawn in position 1 </Original>
+		</Key>
+				<Key ID="STR_PARAMS_CARRIER_SPAWN2">
+			<Original>Object to spawn in position 2 </Original>
+		</Key>
+				<Key ID="STR_PARAMS_CARRIER_SPAWN3">
+			<Original>Object to spawn in position 3 </Original>
+		</Key>
 	</Package>
 </Project>
